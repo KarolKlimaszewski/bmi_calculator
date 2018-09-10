@@ -1,3 +1,24 @@
-body {
-  background-color: red;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
+
+$main-color: #ff9554;
+$main-color-light: lighten($main-color, 25%);
+$main-color-mixed: mix($main-color, green);
+
+@import 'header.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body{
+  background: $main-color-light;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+}
+

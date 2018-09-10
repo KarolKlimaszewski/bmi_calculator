@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 require('./scss/main.scss');
 
 import Bmi from './components/bmi.jsx';
+import Header from './components/header.jsx';
 
 class App extends React.Component {
    constructor(props){
@@ -12,7 +13,10 @@ class App extends React.Component {
    }
    render() {
      return (
-     <Bmi />
+         <div>
+             <Header />
+             <Bmi />
+         </div>
      )
    }
  }

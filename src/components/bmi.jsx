@@ -7,7 +7,10 @@ export default class Bmi extends React.Component {
    }
    render() {
      return (
-       <h1>Hello</h1>
+         <div className={"container"}>
+             <h1>Hello</h1>
+         </div>
+
      )
    }
  }
