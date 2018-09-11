@@ -40,13 +40,13 @@ export default class Units extends React.Component {
                 </h2>
                 <label className="bmi__unit">Metric
                     <input type="radio" name={"metric"} checked={this.state.unit === "metric"}
-                           onClick={this.handleMetricChange} />
+                           onClick={this.handleMetricChange} onTouchStart={this.handleMetricChange} />
                     <span className="checkmark"></span>
                 </label>
 
                 <label className="bmi__unit">Imperial
                     <input type="radio" name={"imperial"} checked={this.state.unit === "imperial"}
-                           onClick={this.handleImperialChange} />
+                           onClick={this.handleImperialChange} onTouchStart={this.handleImperialChange} />
                     <span className="checkmark"></span>
                 </label>
             </div>
