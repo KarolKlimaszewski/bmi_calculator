@@ -15,18 +15,19 @@ $font-color: #000000;
 
 body{
   background: $second-color;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container{
   max-width: 1200px;
   margin: 30px auto;
-  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-between;
 }
 
 .bmi__title{
   color: $font-color;
+  margin: 3px 0;
 }
 
 .bmi__input{

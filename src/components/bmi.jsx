@@ -28,8 +28,36 @@ export default class Bmi extends React.Component {
    render() {
        //calculating value of BMI
        let bmiVal = 0;
+       let category = "You need to fill all fields.";
        if(this.state.height !== "" && this.state.weight !== ""){
-           bmiVal = (this.state.weight / ((this.state.height / 100) * (this.state.height / 100)));
+           bmiVal = Math.round((this.state.weight / ((this.state.height / 100) * (this.state.height / 100)))*100)/100;
+       }
+
+       if(bmiVal !== 0){
+            if(bmiVal <= 15){
+                category = "Very severely underweight";
+            }else if(bmiVal > 15 && bmiVal <= 16){
+                category = "Severely underweight"
+            }else if(bmiVal > 16 && bmiVal <= 18.5){
+                category = "Underweight"
+            }else if(bmiVal > 18.5 && bmiVal <= 25){
+                category = "Normal (healthy weight)"
+            }else if(bmiVal > 25 && bmiVal <= 30){
+                category = "Overweight"
+            }else if(bmiVal > 30 && bmiVal <= 35){
+                category = "Obese Class I (Moderately obese)"
+            }else if(bmiVal > 35 && bmiVal <= 40){
+                category = "Obese Class II (Severely obese)"
+            }else if(bmiVal > 40 && bmiVal <= 45){
+                category = "Obese Class III (Very severely obese)"
+            }else if(bmiVal > 45 && bmiVal <= 50){
+                category = "Obese Class IV (Morbidly Obese)"
+            }else if(bmiVal > 50 && bmiVal <= 60){
+                category = "Obese Class V (Super Obese)"
+            }else if(bmiVal > 60){
+                category = "Obese Class VI (Hyper Obese)"
+            }
+
        }
 
      return (
@@ -48,7 +76,7 @@ export default class Bmi extends React.Component {
                  {bmiVal}
              </p>
              <p className="result__category">
-                 everything is ok
+                 {category}
              </p>
              </div>
 
