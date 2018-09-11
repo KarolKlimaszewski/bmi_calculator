@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
 
 $main-color: #ff9554;
-$main-color-light: lighten($main-color, 25%);
-$main-color-mixed: mix($main-color, green);
+$second-color: #FFEEE4;
+$third-color: #CE6D39;
+$font-color: #000000;
 
 @import 'header.scss';
 
@@ -13,12 +14,62 @@ $main-color-mixed: mix($main-color, green);
 }
 
 body{
-  background: $main-color-light;
+  background: $second-color;
 }
 
 .container{
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
+.bmi__title{
+  color: $font-color;
+}
+
+.bmi__input{
+  border: none;
+  background-color: $third-color;
+  color: white;
+  padding: 10px;
+  width: 150px;
+  border-radius: 10px;
+  &:focus{
+    outline-color: $main-color;
+  }
+}
+
+.bmi__result{
+  color: $font-color;
+  width: 200px;
+  margin-right: 50px;
+  background: $second-color;
+}
+
+.result__title{
+  padding: 10px;
+  color: $font-color;
+  background: lighten($second-color, 2%);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.result__amount{
+  text-align: center;
+  padding: 10px;
+  background: $third-color;
+  border-radius: 5px;
+  color: white;
+  font-weight: 900;
+  font-size: 1.2em;
+}
+
+.result__category{
+  padding: 10px;
+  color: $font-color;
+  background: lighten($second-color, 2%);
+  border-radius: 5px;
+  margin: 10px;
+}
