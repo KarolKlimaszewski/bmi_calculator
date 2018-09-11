@@ -5,7 +5,11 @@ export default class Bmi extends React.Component {
      super(props);
      this.state = {
          height: "",
-         weight: ""
+         weight: "",
+         unit: "metric",
+         heightUnit: "cm",
+         weightUnit: "kg"
+
      }
    }
 
@@ -24,13 +28,33 @@ export default class Bmi extends React.Component {
             })
         }
     };
+    handleImperialChange = (event) => {
+        this.setState({
+            unit: "imperial",
+            heightUnit: "in",
+            weightUnit: "lb"
+        })
+    }
+
+    handleMetricChange = (event) => {
+        this.setState({
+            unit: "metric",
+            heightUnit: "cm",
+            weightUnit: "kg"
+        })
+    }
 
    render() {
        //calculating value of BMI
        let bmiVal = 0;
        let category = "You need to fill all fields.";
        if(this.state.height !== "" && this.state.weight !== ""){
-           bmiVal = Math.round((this.state.weight / ((this.state.height / 100) * (this.state.height / 100)))*100)/100;
+           if(this.state.heightUnit === "cm" && this.state.weightUnit === "kg"){
+               bmiVal = Math.round((this.state.weight / ((this.state.height / 100) * (this.state.height / 100)))*100)/100;
+           }
+           else{
+               bmiVal = Math.round((this.state.weight / ((this.state.height) * (this.state.height)) * 703)*100)/100;
+           }
        }
 
        if(bmiVal !== 0){
@@ -57,18 +81,33 @@ export default class Bmi extends React.Component {
             }else if(bmiVal > 60){
                 category = "Obese Class VI (Hyper Obese)"
             }
-
        }
 
      return (
          <div className={"container"}>
+             <div className="bmi__units">
+                 <h2 className="bmi__title">
+                     Choose units:
+                 </h2>
+                 <label className="bmi__unit">Metric
+                     <input type="radio" name={this.state.unit} checked={this.state.unit === "metric"}
+                            onClick={this.handleMetricChange} />
+                         <span className="checkmark"></span>
+                 </label>
+
+                 <label className="bmi__unit">Imperial
+                     <input type="radio" name={"imperial"} checked={this.state.unit === "imperial"}
+                            onClick={this.handleImperialChange} />
+                         <span className="checkmark"></span>
+                 </label>
+             </div>
              <div className="bmi__inputs">
                  <h2 className={"bmi__title"}>Height:</h2>
                  <input value={this.state.height} className={"bmi__input"} type="text"
-                 onChange={this.handleHeightChange}/>
+                 onChange={this.handleHeightChange}/>{this.state.heightUnit}
                  <h2 className={"bmi__title"}>Weight:</h2>
                  <input value={this.state.weight} className={"bmi__input"} type="text"
-                 onChange={this.handleWeightChange}/>
+                 onChange={this.handleWeightChange}/>{this.state.weightUnit}
              </div>
              <div className="bmi__result">
              <h3 className={"result__title"}>Your BMI is:</h3>
