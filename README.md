@@ -6,16 +6,16 @@ This is React app to check your BMI. In app, you can calculate your BMI using me
 After completing inputs, your result is showing (value and category).
 App is Responsive, so feel free to visit it via phone/tablet. :)
 
-###Used technologies:
+### Used technologies:
 - HTML
 - JavaScript
 - React
 - SASS
 - Webpack
 
-###Demo: https://karolklimaszewski.github.io/bmi_calculator/dist/
+### Demo: https://karolklimaszewski.github.io/bmi_calculator/dist/
 
-##Installing Instructions
+## Installing Instructions
 
 To run this project locally, here are the steps:
 
